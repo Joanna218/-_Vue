@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha512-rO2SXEKBSICa/AfyhEK5ZqWFCOok1rcgPYfGOqtX35OyiraBg6Xa4NnBJwXgpIRoXeWjcAmcQniMhp22htDc6g==' crossorigin='anonymous'/>
+  <title>Document</title>
+</head>
+<style>
+  #app {
+    width: 30%;
+    margin: 0 auto;
+  }
+  .form-row {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<body>
+  <div id="app">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="inputCity">縣市</label>
+        <select id="inputState" class="form-control" v-model="input.city">
+          <option :value="null">請選擇</option>
+          <option v-for="item in cityList.sort"> {{ item }}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-5">
+        <label for="inputState">區域</label>
+        <select id="inputState" class="form-control" v-model="input.district">
+          <option :value="null">請選擇</option>
+          <option v-for="item in districtList.sort"> {{ item }}</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3" v-if="zip`">
+        <label for="inputZip">Zip-index: {{ zip.index +1 }}</label>
+        <input type="text" class="form-control" id="inputZip" disabled v-model="zip.zip">
+      </div>
+    </div>
+  </div>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.9/vue.js' integrity='sha512-o9SZrtqlGkpa7EF+dDrNjEdRFFYhymlrBzDKpolHNolxsyx0IcXAbEm9i1e8QpoiMgEdKZVtY8XiK1t8i6jVDA==' crossorigin='anonymous'></script>
+<script src="./js/index.js"></script>
+</html>
